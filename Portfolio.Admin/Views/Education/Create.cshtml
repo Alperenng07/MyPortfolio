@@ -1,0 +1,57 @@
+﻿<div class="myCard">
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Egitim Ekle</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form asp-controller="Education" asp-action="Create" method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="Id">Id</label>
+                        <input name="Id" type="text" class="form-control" id="Id" placeholder="Id">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Name">Okul Adı</label>
+                        <input name="Name" type="text" class="form-control" id="Name" placeholder="Okul Adı">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Departmant">Bolum Adı</label>
+                        <input name="Departmant" type="text" class="form-control" id="Departmant" placeholder="Bolum Adı">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="City">Şehir</label>
+                        <input name="City" type="text" class="form-control" id="City" placeholder="Şehir">
+                    </div>
+                    <div class="form-group">
+                        <label for="Country">Ulke</label>
+                        <input name="Country" type="text" class="form-control" id="Country" placeholder="Ulke">
+                    </div>
+                    <div class="form-group">
+                        <label for="GraduateDate">Mezuniyet Tarihi</label>
+                        <input name="GraduateDate" type="text" class="form-control" id="GraduateDate" placeholder="gg/aa/yyyy">
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <a type="button" href="Index" class="btn btn-primary">Geri</a>
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>

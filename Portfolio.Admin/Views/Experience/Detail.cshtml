@@ -1,0 +1,43 @@
+﻿@using Entities
+@model Entities.Experience
+
+<div class="myCard">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-text-width"></i>
+                    Tecrube Detay
+                </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">Id: </dt>
+                    <dd class="col-sm-8">@Model.Id</dd>
+                    <dt class="col-sm-4">Sırket Adı: </dt>
+                    <dd class="col-sm-8">@Model.Name</dd>
+
+                    <dt class="col-sm-4">Acıklama: </dt>
+                    <dd class="col-sm-8">@Model.Description</dd>
+                    <dt class="col-sm-4">Sure </dt>
+                    <dd class="col-sm-8">@Model.Year</dd>
+
+
+                </dl>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <a type="button" href="@Url.Action("Index", "Experience")" class="btn btn-primary">Geri</a>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>

@@ -1,0 +1,48 @@
+﻿<div class="myCard">
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Dil Ekle</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form asp-controller="Language" asp-action="Create" method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="Id">Id</label>
+                        <input name="Id" type="text" class="form-control" id="Id" placeholder="Id">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Name">Dil Adı</label>
+                        <input name="Name" type="text" class="form-control" id="Name" placeholder="Dil Adı">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Level">Seviye</label>
+                        <input name="Level" type="text" class="form-control" id="Level" placeholder="Seviye">
+                    </div>
+                    <div class="form-group">
+                        <label for="score">Duzey</label>
+                        <input name="Score" type="text" class="form-control" id="Score" placeholder="Duzey">
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <a type="button" href="Index" class="btn btn-primary">Geri</a>
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>

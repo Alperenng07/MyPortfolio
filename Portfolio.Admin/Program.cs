@@ -26,6 +26,18 @@ builder.Services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
 builder.Services.AddScoped<IBaseService<Skill>, BaseService<Skill>>();
 builder.Services.AddScoped<IBaseRepository<Skill>, BaseRepository<Skill>>();
 
+builder.Services.AddScoped<IBaseService<Language>, BaseService<Language>>();
+builder.Services.AddScoped<IBaseRepository<Language>, BaseRepository<Language>>();
+
+builder.Services.AddScoped<IBaseService<Education>, BaseService<Education>>();
+builder.Services.AddScoped<IBaseRepository<Education>, BaseRepository<Education>>();
+
+builder.Services.AddScoped<IBaseService<Experience>, BaseService<Experience>>();
+builder.Services.AddScoped<IBaseRepository<Experience>, BaseRepository<Experience>>();
+
+builder.Services.AddScoped<IBaseService<Project>, BaseService<Project>>();
+builder.Services.AddScoped<IBaseRepository<Project>, BaseRepository<Project>>();
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>();
 

@@ -1,0 +1,61 @@
+﻿@using Entities
+@model Entities.Education
+
+<div class="myCard">
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Egitim Düzenle</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form asp-controller="Education" asp-action="Update" method="post">
+                <div class="card-body">
+
+
+                    <div class="form-group">
+                        <label for="Id">Id:</label>
+                        <input name="Id" value="@Model.Id" type="text" class="form-control" id="Id" placeholder="Id">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Okul Adı:</label>
+                        <input name="name" value="@Model.Name" type="text" class="form-control" id="name" placeholder="Okul Adı">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Bolum:</label>
+                        <input name="name" value="@Model.Departmant" type="text" class="form-control" id="name" placeholder="Bolum">
+                    </div>
+                    <div class="form-group">
+                        <label for="City">Sehir:</label>
+                        <input name="City" value="@Model.City" type="text" class="form-control" id="City" placeholder="Sehir">
+                    </div>
+                    <div class="form-group">
+                        <label for="Country">Ulke:</label>
+                        <input name="Country" value="@Model.Country" type="text" class="form-control" id="Country" placeholder="Ulke">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="GraduateDate">Mezuniyet Tarihi:</label>
+                        <input name="GraduateDate" value="@Model.GraduateDate" type="text" class="form-control" id="GraduateDate" placeholder="gg/aa/yyyy">
+                    </div>
+
+
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <a type="button" href="@Url.Action("Index", "Education")" class="btn btn-primary">Geri</a>
+                    <button type="submit" class="btn btn-success">Düzenle</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>

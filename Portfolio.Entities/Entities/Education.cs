@@ -21,6 +21,6 @@ namespace Entities
         [Required(ErrorMessage = "Country is required.")]
         public string Country { get; set; }
         [Required(ErrorMessage = "GraduateDate is required.")]
-        public DateTime GraduateDate { get; set; }
+        public string GraduateDate { get; set; }
     }
 }

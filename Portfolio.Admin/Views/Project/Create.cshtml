@@ -1,0 +1,48 @@
+﻿<div class="myCard">
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Proje Ekle</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form asp-controller="Project" asp-action="Create" method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="Id">Id</label>
+                        <input name="Id" type="text" class="form-control" id="Id" placeholder="Id">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Name">Proje Adı</label>
+                        <input name="Name" type="text" class="form-control" id="Name" placeholder="Proje Adı">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Description">Acıklama</label>
+                        <input name="Description" type="text" class="form-control" id="Description" placeholder="Acıklama">
+                    </div>
+                    <div class="form-group">
+                        <label for="img">Photo</label>
+                        <input name="img" type="text" class="form-control" id="img" placeholder="Photo">
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <a type="button" href="Index" class="btn btn-primary">Geri</a>
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>
