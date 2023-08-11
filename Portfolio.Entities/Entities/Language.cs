@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Language
+    public class Language : BaseEntity
     {
-        [Key] 
-        public int Id { get; set; }
+   
 
         [Required(ErrorMessage = "Name is required.")]
         public string name { get; set; }

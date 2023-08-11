@@ -1,5 +1,4 @@
 ﻿using Entities;
-
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Business.Service.BaseService;
 
@@ -8,7 +7,11 @@ namespace Portfolio.Admin.Controllers
     public class UserController : Controller
     {
         private readonly IBaseService<User> _service;
-       
+
+        public UserController(IBaseService<User> service)
+        {
+            _service = service;
+        }
         public async Task<IActionResult> Index()
         {
             var users = await _service.GetAllAsync();

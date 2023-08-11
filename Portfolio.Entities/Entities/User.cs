@@ -18,8 +18,8 @@ namespace Entities
         [Required(ErrorMessage = "Password is required.")]
         public string Password{ get; set; }
        
-       public Guid RoleId { get; set; }
-        public Role Role { get; set; }
+       
+        public String Role { get; set; }= "Guess";
        
 
 

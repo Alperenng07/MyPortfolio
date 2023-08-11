@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Experience
+    public class Experience : BaseEntity
     {
-        [Key] public int Id { get; set; }
+       
 
         [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }

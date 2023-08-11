@@ -8,11 +8,7 @@ public class DataContext : DbContext
 {
     private IConfiguration _configuration { get; set; }
 
-    //public DataContext(IConfiguration configuration)
-    //{
-    //    _configuration = configuration;
-    //}
-
+  
     
     public DataContext(DbContextOptions<DataContext> options, IConfiguration configuration) : base(options) {
         _configuration = configuration;
@@ -30,7 +26,7 @@ public class DataContext : DbContext
     public DbSet<Moderator> Moderators { get; set; }
     public DbSet<Offer> Offers { get; set; }
     public DbSet<Project> Projects { get; set; }
-    public DbSet<Role> Roles { get; set; }
+    
     public DbSet<Skill> Skills { get; set; }
     public DbSet<User> Users { get; set; }
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())

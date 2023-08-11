@@ -23,6 +23,9 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IBaseService<User>, BaseService<User>>();
 builder.Services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
 
+builder.Services.AddScoped<IBaseService<Skill>, BaseService<Skill>>();
+builder.Services.AddScoped<IBaseRepository<Skill>, BaseRepository<Skill>>();
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>();
 

@@ -1,5 +1,48 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using Entities
+@model Entities.User
+
+<div class="myCard">
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">
+                <i class="fas fa-text-width"></i>
+                Kullanıcı Detay
+            </h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body" >
+            <dl class="row">
+                <dt class="col-sm-4">Kullanıcı Adı: </dt>
+                <dd class="col-sm-8">@Model.Name</dd>
+                <dt class="col-sm-4">Kullanıcı Soyadı: </dt>
+                <dd class="col-sm-8">@Model.SurName</dd>
+                <dt class="col-sm-4">Kullanıcı Rolü: </dt>
+                <dd class="col-sm-8">@Model.Role</dd>
+                <dt class="col-sm-4">Kullanıcı Maili: </dt>
+                <dd class="col-sm-8">@Model.Email</dd>
+                <dt class="col-sm-4">Telefon No: </dt>
+                <dd class="col-sm-8">@Model.Phone</dd>
+                <dt class="col-sm-4">Kullanıcı Sifresi: </dt>
+                <dd class="col-sm-8">@Model.Password</dd>
+                <dt class="col-sm-4">Oluşturulma Tarihi: </dt>
+                <dd class="col-sm-8">@Model.CreatedAt</dd>
+                <dt class="col-sm-4">Düzenleme Tarihi: </dt>
+                <dd class="col-sm-8">@Model.UpdatedAt</dd>
+            </dl>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <a type="button" href="@Url.Action("Index", "User")" class="btn btn-primary">Geri</a>
+        </div>
+    </div>
+    <!-- /.card -->
+</div>
+</div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>

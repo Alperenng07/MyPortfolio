@@ -1,5 +1,53 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<div class="myCard">
+<div class="col-md-12">
+    <!-- general form elements -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Kullanıcı Ekle</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form asp-controller="User" asp-action="Create" method="post">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="Name">Kullanıcı Adı</label>
+                    <input name="Name" type="text" class="form-control" id="Name" placeholder="Kullanıcı Adı">
+                </div>
+                <div class="form-group">
+                    <label for="SurName">Kullanıcı Soyadı</label>
+                    <input name="SurName" type="text" class="form-control" id="SurName" placeholder="Kullanıcı Soyadı">
+                </div>
+                <div class="form-group">
+                    <label for="Email">Mail</label>
+                    <input name="Email" type="text" class="form-control" id="Email" placeholder="Kullanıcı Mail">
+                </div>
+                <div class="form-group">
+                    <label for="Phone">Telefon No</label>
+                    <input name="Phone" type="text" class="form-control" id="Phone" placeholder="Telefon No">
+                </div>
+                <div class="form-group">
+                    <label for="Password">SIFRE</label>
+                    <input name="Password" type="text" class="form-control" id="Password" placeholder="Kullanıcı Sifresi">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <textarea class="form-control" name="Role" id="role" cols="20" rows="10" placeholder="Rol"></textarea>
+                </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <a type="button" href="Index" class="btn btn-primary">Geri</a>
+                <button type="submit" class="btn btn-success">Kaydet</button>
+            </div>
+        </form>
+    </div>
+    <!-- /.card -->
+</div>
+</div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>

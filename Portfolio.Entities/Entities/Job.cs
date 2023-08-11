@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Job
+    public class Job : BaseEntity
     {
-        [Key] public int Id { get; set; }
         [Required(ErrorMessage = "Description is required.")]
         [StringLength(20, ErrorMessage = "Description must be less than 20 characters.")]
         public string Description { get; set; }

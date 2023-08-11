@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Entities", "Portf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.DataAccess", "Portfolio.DataAccess\Portfolio.DataAccess.csproj", "{4F931B73-B448-4A2B-AA32-206CE58136D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Admin", "Portfolio.Admin\Portfolio.Admin.csproj", "{D3874EA0-4269-441C-903D-C80DC9096A5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Admin", "Portfolio.Admin\Portfolio.Admin.csproj", "{D3874EA0-4269-441C-903D-C80DC9096A5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

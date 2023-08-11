@@ -1,5 +1,56 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using Entities
+@model Entities.User
+
+<div class="myCard">
+<div class="col-md-12" >
+    <!-- general form elements -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Kullanıcı Düzenle</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form asp-controller="User" asp-action="Update" method="post">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="Name">Kullanıcı Adı:</label>
+                    <input name="Name" value="@Model.Name" type="text" class="form-control" id="Name" placeholder="Kullanıcı Adı">
+                </div>
+                <div class="form-group">
+                    <label for="SurName">Kullanıcı Soyadı:</label>
+                    <input name="SurName" value="@Model.SurName" type="text" class="form-control" id="SurName" placeholder="Kullanıcı Soyadı">
+                </div>
+                <div class="form-group">
+                    <label for="Email">Kullanıcı Maili:</label>
+                    <input name="Email" value="@Model.Email" type="text" class="form-control" id="Email" placeholder="Kullanıcı Maili">
+                </div>
+                <div class="form-group">
+                    <label for="Phone">Telefon No:</label>
+                    <input name="Phone" value="@Model.Phone" type="text" class="form-control" id="Phone" placeholder="Telefon No:">
+                </div>
+               <div class="form-group">
+                    <label for="Role">Kullanıcı Rolü:</label>
+                    <input name="Role" value="@Model.Role" type="text" class="form-control" id="Role" placeholder="Kullanıcı Rol">
+                </div>
+                <div class="form-group">
+                    <label for="Password">Kullanıcı Sifresi:</label>
+                    <input name="Password" value="@Model.Password" type="text" class="form-control" id="Password" placeholder="Kullanıcı Sifresi">
+                </div>
+                
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <a type="button" href="@Url.Action("Index", "User")" class="btn btn-primary">Geri</a>
+                <button type="submit" class="btn btn-success">Düzenle</button>
+            </div>
+        </form>
+    </div>
+    <!-- /.card -->
+</div></div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>
