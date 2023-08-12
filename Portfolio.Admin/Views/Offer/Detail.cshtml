@@ -1,0 +1,47 @@
+﻿@using Entities
+@model Entities.Offer
+
+<div class="myCard">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-text-width"></i>
+                    Teklif Detay
+                </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">Id: </dt>
+                    <dd class="col-sm-8">@Model.Id</dd>
+                    <dt class="col-sm-4">Acıklama: </dt>
+                    <dd class="col-sm-8">@Model.Description</dd>
+
+                    <dt class="col-sm-4">Icerik: </dt>
+                    <dd class="col-sm-8">@Model.Content</dd>
+
+                    <dt class="col-sm-4">Ucret: </dt>
+                    <dd class="col-sm-8">@Model.Price</dd>
+
+                    <dt class="col-sm-4">Teslim Tarihi: </dt>
+                    <dd class="col-sm-8">@Model.DeliveryTime</dd>
+
+
+                </dl>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <a type="button" href="@Url.Action("Index", "Offer")" class="btn btn-primary">Geri</a>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>

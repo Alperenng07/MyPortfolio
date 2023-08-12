@@ -1,0 +1,57 @@
+﻿@using Entities
+@model Entities.Moderator
+
+<div class="myCard">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-text-width"></i>
+                    Moderator Detay
+                </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">Moderator Adı: </dt>
+                    <dd class="col-sm-8">@Model.Name</dd>
+                    <dt class="col-sm-4"> Sifre: </dt>
+                    <dd class="col-sm-8">@Model.Password</dd>
+                    <dt class="col-sm-4">Moderator Adressi: </dt>
+                    <dd class="col-sm-8">@Model.Adress</dd>
+                    
+                    <dt class="col-sm-4">Kullanıcı Maili: </dt>
+                    <dd class="col-sm-8">@Model.Email</dd>
+                    <dt class="col-sm-4">Telefon No: </dt>
+                    <dd class="col-sm-8">@Model.Phone</dd>
+                    <dt class="col-sm-4">Github: </dt>
+                    <dd class="col-sm-8">@Model.Github</dd>
+                    <dt class="col-sm-4">Linkedln: </dt>
+                    <dd class="col-sm-8">@Model.Linedln</dd>
+                    <dt class="col-sm-4">Instagram: </dt>
+                    <dd class="col-sm-8">@Model.Instagram</dd>
+                    <dt class="col-sm-4">Twitter: </dt>
+                    <dd class="col-sm-8">@Model.Twitter</dd>
+
+
+                    <dt class="col-sm-4">Oluşturulma Tarihi: </dt>
+                    <dd class="col-sm-8">@Model.CreatedAt</dd>
+                    <dt class="col-sm-4">Düzenleme Tarihi: </dt>
+                    <dd class="col-sm-8">@Model.UpdatedAt</dd>
+                </dl>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <a type="button" href="@Url.Action("Index", "Moderator")" class="btn btn-primary">Geri</a>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>

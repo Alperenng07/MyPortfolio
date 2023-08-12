@@ -22,7 +22,7 @@ namespace Entities
         public int Price { get; set; }
 
         [Required(ErrorMessage = "Delivery time is required.")]
-        public DateTime DeliveryTime { get; set; }
+        public string DeliveryTime { get; set; }
 
 
         

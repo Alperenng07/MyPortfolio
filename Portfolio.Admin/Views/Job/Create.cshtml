@@ -3,26 +3,30 @@
         <!-- general form elements -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Dil Ekle</h3>
+                <h3 class="card-title">Is Ekle</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form asp-controller="Language" asp-action="Create" method="post">
+            <form asp-controller="Job" asp-action="Create" method="post">
                 <div class="card-body">
-                 
+                  
 
                     <div class="form-group">
-                        <label for="Name">Dil Adı</label>
-                        <input name="Name" type="text" class="form-control" id="Name" placeholder="Dil Adı">
+                        <label for="Description">Acıklama</label>
+                        <input name="Description" type="text" class="form-control" id="Description" placeholder="Acıklama">
                     </div>
 
                     <div class="form-group">
-                        <label for="Level">Seviye</label>
-                        <input name="Level" type="text" class="form-control" id="Level" placeholder="Seviye">
+                        <label for="Content">Icerik</label>
+                        <input name="Content" type="text" class="form-control" id="Content" placeholder="Icerik">
                     </div>
                     <div class="form-group">
-                        <label for="score">Duzey</label>
-                        <input name="Score" type="text" class="form-control" id="Score" placeholder="Duzey">
+                        <label for="Price">Ucret</label>
+                        <input name="Price" type="text" class="form-control" id="Price" placeholder="Ucret">
+                    </div>
+                    <div class="form-group">
+                        <label for="DeliveryTime">Teslim Tarihi</label>
+                        <input name="DeliveryTime" type="text" class="form-control" id="DeliveryTime" placeholder="gg/aa/yyyy">
                     </div>
 
                 </div>

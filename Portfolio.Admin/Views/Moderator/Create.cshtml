@@ -1,0 +1,66 @@
+﻿<div class="myCard">
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Moderator Ekle</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form asp-controller="Moderator" asp-action="Create" method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="Name">Moderator Adı</label>
+                        <input name="Name" type="text" class="form-control" id="Name" placeholder="Moderator Adı">
+                    </div>
+                    <div class="form-group">
+                        <label for="Password">SIFRE</label>
+                        <input name="Password" type="text" class="form-control" id="Password" placeholder="Kullanıcı Sifresi">
+                    </div>
+                    <div class="form-group">
+                        <label for="Adress">Moderator Adressi</label>
+                        <input name="Adress" type="text" class="form-control" id="Adress" placeholder="Moderator Adressi">
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Mail</label>
+                        <input name="Email" type="text" class="form-control" id="Email" placeholder="Kullanıcı Mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="Phone">Telefon No</label>
+                        <input name="Phone" type="text" class="form-control" id="Phone" placeholder="Telefon No">
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="Github">Github(URL)</label>
+                        <textarea class="form-control" name="Github" id="Github" cols="20" rows="10" placeholder="Github"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="Linedln">Linkedln(URL)</label>
+                        <textarea class="form-control" name="Linedln" id="Linedln" cols="20" rows="10" placeholder="Linkedln"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="Instagram">Instagram(URL)</label>
+                        <textarea class="form-control" name="Instagram" id="Instagram" cols="20" rows="10" placeholder="Instagram"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="Twitter">Twitter(URL)</label>
+                        <textarea class="form-control" name="Twitter" id="Twitter" cols="20" rows="10" placeholder="Twitter"></textarea>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <a type="button" href="Index" class="btn btn-primary">Geri</a>
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>

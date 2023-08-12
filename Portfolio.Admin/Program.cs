@@ -38,6 +38,18 @@ builder.Services.AddScoped<IBaseRepository<Experience>, BaseRepository<Experienc
 builder.Services.AddScoped<IBaseService<Project>, BaseService<Project>>();
 builder.Services.AddScoped<IBaseRepository<Project>, BaseRepository<Project>>();
 
+builder.Services.AddScoped<IBaseService<Job>, BaseService<Job>>();
+builder.Services.AddScoped<IBaseRepository<Job>, BaseRepository<Job>>();
+
+builder.Services.AddScoped<IBaseService<Moderator>, BaseService<Moderator>>();
+builder.Services.AddScoped<IBaseRepository<Moderator>, BaseRepository<Moderator>>();
+
+builder.Services.AddScoped<IBaseService<Offer>, BaseService<Offer>>();
+builder.Services.AddScoped<IBaseRepository<Offer>, BaseRepository<Offer>>();
+
+builder.Services.AddScoped<IBaseService<Comment>, BaseService<Comment>>();
+builder.Services.AddScoped<IBaseRepository<Comment>, BaseRepository<Comment>>();
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>();
 

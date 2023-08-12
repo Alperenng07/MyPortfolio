@@ -1,0 +1,46 @@
+﻿@using Entities
+@model Entities.Comment
+
+<div class="myCard">
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Yorum Düzenle</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form asp-controller="Education" asp-action="Update" method="post">
+                <div class="card-body">
+
+
+                  
+                    <div class="form-group">
+                        <label for="Text">Icerik:</label>
+                        <input name="Text" value="@Model.Text" type="text" class="form-control" id="Text" placeholder="Icerik">
+                    </div>
+                    <div class="form-group">
+                        <label for="Answer">Cevap:</label>
+                        <input name="Answer" value="@Model.Answer" type="text" class="form-control" id="Answer" placeholder="Cevap">
+                    </div>
+                 
+
+
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <a type="button" href="@Url.Action("Index", "Comment")" class="btn btn-primary">Geri</a>
+                    <button type="submit" class="btn btn-success">Düzenle</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>

@@ -1,0 +1,54 @@
+﻿@using Entities
+@model Entities.Job
+
+<div class="myCard">
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Is Düzenle</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form asp-controller="Job" asp-action="Update" method="post">
+                <div class="card-body">
+
+
+                 
+                    <div class="form-group">
+                        <label for="Description">Yetenek Adı:</label>
+                        <input name="Description" value="@Model.Description" type="text" class="form-control" id="Description" placeholder="Acıklama">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Content">Icerik:</label>
+                        <input name="Content" value="@Model.Content" type="text" class="form-control" id="Content" placeholder="Icerik">
+                    </div>
+                    <div class="form-group">
+                        <label for="Price">Ucret:</label>
+                        <input name="Price" value="@Model.Price" type="text" class="form-control" id="Price" placeholder="Ucret">
+                    </div>
+                    <div class="form-group">
+                        <label for="DeliveryTime">Skor:</label>
+                        <input name="DeliveryTime" value="@Model.DeliveryTime" type="text" class="form-control" id="DeliveryTime" placeholder="gg/aa/yyyy">
+                    </div>
+
+
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <a type="button" href="@Url.Action("Index", "Job")" class="btn btn-primary">Geri</a>
+                    <button type="submit" class="btn btn-success">Düzenle</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+<style>
+    .myCard {
+        width: 1200px;
+        height: 200px;
+        padding-left: 250px;
+    }
+</style>
