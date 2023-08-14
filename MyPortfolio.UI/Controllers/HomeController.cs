@@ -23,9 +23,16 @@ namespace MyPortfolio.UI.Controllers
            
         ModeratorFullViewModel model = new ModeratorFullViewModel();
 
-        model.Moderators= _context.Moderators.ToList();
+            model.Moderators= _context.Moderators.ToList();
+            model.Jobs = _context.Jobs.ToList();
+            model.Projects = _context.Projects.ToList();
+            model.Languages = _context.Languages.ToList();
+            model.Skills = _context.Skills.ToList();
+            model.Educations = _context.Educations.ToList();
+            model.Experiences = _context.Experiences.ToList();
+            
 
-        return View(model);
+            return View(model);
 
           
         }
