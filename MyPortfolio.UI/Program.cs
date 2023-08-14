@@ -1,5 +1,6 @@
 using Entities;
 using Microsoft.EntityFrameworkCore;
+using MyPortfolio.UI.Models;
 using Portfolio.Business.Service.Auth;
 using Portfolio.Business.Service.BaseService;
 using Portfolio.Business.Service.Token;
@@ -22,6 +23,9 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IBaseService<User>, BaseService<User>>();
 builder.Services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
+
+builder.Services.AddScoped<IBaseService<ModeratorFullViewModel>, BaseService<ModeratorFullViewModel>>();
+builder.Services.AddScoped<IBaseRepository<ModeratorFullViewModel>, BaseRepository<ModeratorFullViewModel>>();
 
 builder.Services.AddControllersWithViews();
 

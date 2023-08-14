@@ -43,7 +43,6 @@ namespace Portfolio.Admin.Controllers
             return View("Index");
         }
 
-        [HttpGet]
         public async Task<IActionResult> Update(Guid id)
         {
             var use = await _service.GetByIdAsync(id);

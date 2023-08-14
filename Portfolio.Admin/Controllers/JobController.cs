@@ -11,10 +11,14 @@ namespace Portfolio.Admin.Controllers
 
         public JobController(IBaseService<Job> service)
         {
+
             _service = service;
         }
         public async Task<IActionResult> Index()
         {
+
+
+
             var langs = await _service.GetAllAsync();
             return View(langs);
         }

@@ -7,12 +7,18 @@ using Microsoft.Extensions.Configuration;
 public class DataContext : DbContext
 {
     private IConfiguration _configuration { get; set; }
+   
 
-  
-    
+
+
     public DataContext(DbContextOptions<DataContext> options, IConfiguration configuration) : base(options) {
         _configuration = configuration;
     }
+
+    //public DataContext()
+    //{
+    //}
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DefaultConnection"));
@@ -29,6 +35,8 @@ public class DataContext : DbContext
     
     public DbSet<Skill> Skills { get; set; }
     public DbSet<User> Users { get; set; }
+   
+
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
     {
         ProcessSaveChanges();
