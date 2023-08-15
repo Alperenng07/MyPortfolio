@@ -328,7 +328,7 @@
                         <h6 class="title">@item.Name</h6>
 
                         <p class="post-details">
-                            <a href="~/Template/public_html/#">By: Admin</a>
+                            <a href="/../Views/Home/Index.cshtml">By: Admin</a>
                             <a href="~/Template/public_html/#"><i class="ti-heart text-danger"></i> 234</a>
                             <a href="~/Template/public_html/#"><i class="ti-comment"></i> 123</a>
                         </p>
@@ -338,12 +338,45 @@
                        
 
                         <a href="~/Template/public_html/#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
-                    </div>
-                </div><!-- end of blog wrapper -->
-                <!-- blog-card -->
-              }
 
-            </div>
+                                <button type ="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+                                    Yorum yap
+                                </button>
+                                <div class="modal" id="Modal1">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h2 class="modal-title">Yorum</h2> <hr>
+                                        </div>
+                                            <div>
+
+
+                                            <formasp-controller ="Home" asp-action="Index" method="post">
+                                                <div class="modal-body">
+
+                                                        <h4> @item.Name <br /> @item.Description  <br /> </h4>
+
+                                                    <div class="form-group">
+                                                        <label for="Text">Yorum</label>
+                                                        <input name="Text" type="Text" class="form-control" id="Text" placeholder="0-1">
+                                                    </div>
+                                            </div>
+                                                <button type="submit" class="btn btn-success">Kaydet</button>
+                                            </formasp-controller>
+                                            
+                                        </div>
+                                   
+                                    </div>
+                                </div>
+
+                          
+                           
+                    </div>
+                        </div><!-- end of blog wrapper --> 
+                <!-- blog-card -->
+                   
+
+            </div>}
         </div>
     </section>
 
