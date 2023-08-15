@@ -1,5 +1,8 @@
 ﻿
+
 @model MyPortfolio.UI.Models.ModeratorFullViewModel
+
+
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -351,18 +354,21 @@
                                             <div>
 
 
-                                            <formasp-controller ="Home" asp-action="Index" method="post">
+                                           
                                                 <div class="modal-body">
 
                                                         <h4> @item.Name <br /> @item.Description  <br /> </h4>
-
+                                               <form asp-controller ="Home" asp-action="Index" method="post">
                                                     <div class="form-group">
                                                         <label for="Text">Yorum</label>
-                                                        <input name="Text" type="Text" class="form-control" id="Text" placeholder="0-1">
+                                                        <input name="Text" type="Text" class="form-control" id="Text" placeholder="Buraya yazınız..">
                                                     </div>
+                                                    <button type="submit"  class="btn btn-success">Kaydet</button>
+
+                                                </form>
                                             </div>
-                                                <button type="submit" class="btn btn-success">Kaydet</button>
-                                            </formasp-controller>
+                                                
+                                         
                                             
                                         </div>
                                    

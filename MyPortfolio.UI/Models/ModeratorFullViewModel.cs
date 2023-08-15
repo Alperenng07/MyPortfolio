@@ -11,7 +11,9 @@ namespace MyPortfolio.UI.Models
         public IEnumerable<Education> Educations { get; set; }
         public IEnumerable<Project> Projects { get; set; }
         public IEnumerable<Experience> Experiences { get; set; }
-       
+        public IEnumerable<Comment> Comments { get; set; }
+        public IEnumerable<Offer> Offers { get; set; }
+        public IEnumerable<User> Users { get; set; }
 
 
 

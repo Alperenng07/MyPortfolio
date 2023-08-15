@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.UI.Models;
+using Portfolio.Business.Service.BaseService;
 using System.Diagnostics;
 
 
@@ -10,14 +12,16 @@ namespace MyPortfolio.UI.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly DataContext _context;
-        public HomeController(ILogger<HomeController> logger, DataContext context)
+        private readonly IBaseService<Comment> _service;
+        public HomeController(ILogger<HomeController> logger, DataContext context, IBaseService<Comment> service)
         {
             _logger = logger;
            _context = context;
+            _service= service;
         }
 
 
-        //DataContext db = new();
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
            
@@ -30,7 +34,9 @@ namespace MyPortfolio.UI.Controllers
             model.Skills = _context.Skills.ToList();
             model.Educations = _context.Educations.ToList();
             model.Experiences = _context.Experiences.ToList();
-            
+            model.Offers = _context.Offers.ToList();
+            model.Users = _context.Users.ToList();
+            model.Comments = _context.Comments.ToList();
 
             return View(model);
 
@@ -39,20 +45,12 @@ namespace MyPortfolio.UI.Controllers
 
 
 
-        //[HttpPost]
-        //public async Task<IActionResult> Index(ModeratorFullViewModel lang)
-        //{
-        //    var langs = await _service.AddAsync(lang);
-        //    return View(langs);
-        //}
-
-
-        //[HttpPost]
-        //public async Task<IActionResult> Comment(ModeratorFullViewModel lang)
-        //{
-        //    var langs = await _service.AddAsync(lang);
-        //    return View(langs);
-       // }
+        [HttpPost]
+        public async Task<IActionResult> Index(Comment lang)
+        {
+            var langs = await _service.AddAsync(lang);
+            return View(langs);
+        }
 
 
 

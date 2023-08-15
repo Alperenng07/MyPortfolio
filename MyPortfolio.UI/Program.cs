@@ -24,6 +24,10 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IBaseService<User>, BaseService<User>>();
 builder.Services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
 
+builder.Services.AddScoped<IBaseService<Comment>, BaseService<Comment>>();
+builder.Services.AddScoped<IBaseRepository<Comment>, BaseRepository<Comment>>();
+
+
 builder.Services.AddScoped<IBaseService<ModeratorFullViewModel>, BaseService<ModeratorFullViewModel>>();
 builder.Services.AddScoped<IBaseRepository<ModeratorFullViewModel>, BaseRepository<ModeratorFullViewModel>>();
 
