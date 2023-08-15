@@ -18,17 +18,20 @@
     <!-- Bootstrap + JohnDoe main styles -->
     <link rel="stylesheet" href="~/Template/public_html/assets/css/johndoe.css">
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    <a href="~/Template/public_html/components.html" class="btn btn-primary btn-component" data-spy="affix" data-offset-top="600"><i class="ti-shift-left-alt"></i> Components</a>
+<body >
+
     <header class="header">
         <div class="container">
-            <ul class="social-icons pt-3">
-                <li class="social-item"><a class="social-link text-light" href="~/Template/public_html/#"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="~/Template/public_html/#"><i class="ti-twitter" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="~/Template/public_html/#"><i class="ti-google" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="~/Template/public_html/#"><i class="ti-instagram" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="~/Template/public_html/#"><i class="ti-github" aria-hidden="true"></i></a></li>
-            </ul>
+            @foreach (var item in Model.Moderators)
+            {
+                <ul class="social-icons pt-3">
+
+                    <li class="social-item"><a class="social-link" href="@item.Twitter"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="@item.Linedln"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="@item.Instagram"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="@item.Github"><i class="ti-github" aria-hidden="true"></i></a></li>
+                </ul>
+            }
             <div class="header-content">
                 <h4 class="header-subtitle">Hello, I am</h4>
                 <h1 class="header-title">@foreach (var item in Model.Moderators){@item.Name ; }</h1>
@@ -66,9 +69,7 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                 @*   <li class="nav-item">
-                        <a href="~/Template/public_html/#portfolio" class="nav-link">Portfolio</a>
-                    </li>*@
+               
                     <li class="nav-item">
                         <a href="~/Template/public_html/#blog" class="nav-link">Blog</a>
                     </li>
@@ -110,21 +111,23 @@
                             ;
                         }</li>
                 </ul>
+               @foreach (var item in Model.Moderators)
+                {
                 <ul class="social-icons pt-3">
-                    <li class="social-item"><a class="social-link" href="~/Template/public_html/#"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="~/Template/public_html/#"><i class="ti-twitter" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="~/Template/public_html/#"><i class="ti-google" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="~/Template/public_html/#"><i class="ti-instagram" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="~/Template/public_html/#"><i class="ti-github" aria-hidden="true"></i></a></li>
-                </ul>
+                   
+                        <li class="social-item"><a class="social-link" href="@item.Twitter"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link" href="@item.Linedln"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link" href="@item.Instagram"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link" href="@item.Github"><i class="ti-github" aria-hidden="true"></i></a></li>
+                </ul>}
             </div>
-            @foreach (var item in Model.Experiences)
-            {
-              
+          
             
             <div class="col-lg-4 about-card">
                 <h3 class="font-weight-light">My Experience</h3>
-                <span class="line mb-5"></span>
+                <span class="line mb-5"></span>  @foreach (var item in Model.Experiences)
+                {
+
                 <div class="row">
                     <div class="col-1 text-danger pt-1"><i class="ti-widget icon-lg"></i></div>
                     <div class="col-10 ml-auto mr-3">
@@ -136,12 +139,10 @@
                         </p>
                         <hr>
                     </div>
-                </div>
-
-                    
-                    
+                    </div>
+                }
             </div>
-            }
+           
         </div>
     </div>
 
@@ -161,9 +162,9 @@
                         </div>
                         @foreach (var item in Model.Educations){
                         <div class="card-body">
-                            <h6 class="title text-danger">@item.GraduateDate</h6>
+                                <h6 class="title text-danger">@item.Departmant </h6>
                             <P>@item.Name</P>
-                            <P class="subtitle"> @item.Departmant <br> @item.City <br> @item.Country <br>   </P>
+                                <P class="subtitle"> @item.GraduateDate <br> @item.City <br> @item.Country <br>   </P>
                             <hr>
                             
                         </div>
@@ -181,7 +182,7 @@
                         <div class="card-body pb-2">
                             <h6>@item.name</h6>
                             <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: @item.Level * 20% " aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: @item.Level  " aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         
                             </div>
@@ -311,187 +312,7 @@
     </section>
     @*teklif oluşturmayı yapcazzzzz*@
     <!-- Portfolio Section -->
-   @* <section class="section bg-custom-gray" id="portfolio">
-        <div class="container">
-            <h1 class="mb-5"><span class="text-danger">My</span> Portfolio</h1>
-            <div class="portfolio">
-                <div class="filters">
-                    <a href="~/Template/public_html/#" data-filter=".new" class="active">
-                        New
-                    </a>
-                    <a href="~/Template/public_html/#" data-filter=".advertising">
-                        Advertising
-                    </a>
-                    <a href="~/Template/public_html/#" data-filter=".branding">
-                        Branding
-                    </a>
-                    <a href="~/Template/public_html/#" data-filter=".web">
-                        Web
-                    </a>
-                </div>
-                <div class="portfolio-container">
-                    <div class="col-md-6 col-lg-4 web new">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/web-1.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/web-1.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">WEB</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 web new">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/web-2.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/web-2.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">WEB</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 advertising new">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/advertising-2.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/advertising-2.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">ADVERSTISING</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 web">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/web-4.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/web-4.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">WEB</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 advertising">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/advertising-1.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/advertising-1.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">ADVERSITING</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 web new">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/web-3.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/web-3.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">WEB</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 advertising new">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/advertising-3.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/advertising-3.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">ADVERSITING</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 advertising new">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/advertising-4.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/advertising-4.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">ADVERTISING</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6 col-lg-4 branding new">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/branding-1.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/branding-1.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">BRANDING</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 branding">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/branding-2.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/branding-2.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">BRANDING</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 branding new">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/branding-3.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/branding-3.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">BRANDING</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 branding">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/branding-4.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/branding-4.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">BRANDING</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 branding">
-                        <div class="portfolio-item">
-                            <img src="~/Template/public_html/assets/imgs/branding-5.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="~/Template/public_html/assets/imgs/branding-5.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">BRANDING</h6>
-                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>*@
+   
     <!-- End of portfolio section -->
 
     <section class="section" id="blog">
@@ -576,13 +397,15 @@
                                 <h6 class="d-inline">Email :<br> <span class="text-muted">@item.Email</span></h6>
                             </div>
                         </div>
-                        <ul class="social-icons pt-4">
-                            <li class="social-item"><a class="social-link text-dark" href="~/Template/public_html/#"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link text-dark" href="~/Template/public_html/#"><i class="ti-twitter" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link text-dark" href="~/Template/public_html/#"><i class="ti-google" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link text-dark" href="~/Template/public_html/#"><i class="ti-instagram" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link text-dark" href="~/Template/public_html/#"><i class="ti-github" aria-hidden="true"></i></a></li>
-                        </ul>
+                       
+              
+                <ul class="social-icons pt-3">
+                   
+                        <li class="social-item"><a class="social-link" href="@item.Twitter"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link" href="@item.Linedln"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link" href="@item.Instagram"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link" href="@item.Github"><i class="ti-github" aria-hidden="true"></i></a></li>
+                </ul>
                     </div>}
                 </div>
             </div>
