@@ -45,13 +45,7 @@ namespace MyPortfolio.UI.Controllers
 
 
 
-        //[HttpPost]
-        //public async Task<IActionResult> Index(CommentView lang)
-        //{
-        //    var langs = await _service.AddAsync(lang);
-        //    return View(langs);
-        //}
-
+     
 
 
 

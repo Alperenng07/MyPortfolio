@@ -39,7 +39,8 @@ namespace Repositories.Concrete
 
         public async Task<bool> SaveAllAsync()
         {
-            return await _context.SaveChangesAsync() > 0;
+            var a = await _context.SaveChangesAsync();
+            return a > 0;
         }
 
         public async Task<bool> DeleteAsync(Guid id)

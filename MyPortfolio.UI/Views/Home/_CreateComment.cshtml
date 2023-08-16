@@ -1,0 +1,13 @@
+﻿@model MyPortfolio.UI.Models.CommentView
+
+@using (Html.BeginForm("ActionCreate", "Home", FormMethod.Post))
+{
+   
+        <div class="form-group">
+            <label for="Text">Yorum</label>
+            <input name="Text"   placeholder="Buraya yazınız..">
+        </div>
+        <button type="submit" class="btn btn-success">Kaydet</button>
+
+    
+}
