@@ -27,9 +27,9 @@ namespace Portfolio.Business.Service.BaseService
 
         public async Task<T> AddAsync(T entity)
         {
-            await _repository.AddAsync(entity);
+            var response = await _repository.AddAsync(entity);
             await _repository.SaveAllAsync();
-            return entity;
+            return response;
         }
 
         public async Task<bool> DeleteAsync(Guid id)

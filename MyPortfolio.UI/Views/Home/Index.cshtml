@@ -5,6 +5,7 @@
 
 @{
     ViewData["Title"] = "Home Page";
+    
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -310,7 +311,8 @@
     <section class="section bg-dark py-5">
         <div class="container text-center">
             <h2 class="text-light mb-5 font-weight-normal">I Am Available For FreeLance</h2>
-            <button class="btn bg-primary w-lg">Hire me</button>
+            <button class="btn bg-primary w-lg" onclick="location.href='@Url.Action("Index", "Offer")'">Hire me</button>
+
         </div>
     </section>
     @*teklif oluşturmayı yapcazzzzz*@
@@ -342,34 +344,21 @@
 
                         <a href="~/Template/public_html/#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
 
-                                <button type ="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
-                                    Yorum yap
-                                </button>
-                                <div class="modal" id="Modal1">
+
+                            <button type="button" data-target="#modalCreate" data-toggle="modal" class="btn btn-primary" onclick="loadModal('dvModalCreate','@Url.ActionLink("Create","Home")')">
+                                Yorum Yap
+                            </button>
+                                <div class="modal" id="modalCreate">
                                     <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h2 class="modal-title">Yorum</h2> <hr>
                                         </div>
                                             <div>
-
-
-                                           
                                                 <div class="modal-body">
-
-                                                        <h4> @item.Name <br /> @item.Description  <br /> </h4>
-                                               <form asp-controller ="Home" asp-action="Index" method="post">
-                                                    <div class="form-group">
-                                                        <label for="Text">Yorum</label>
-                                                        <input name="Text" type="Text" class="form-control" id="Text" placeholder="Buraya yazınız..">
-                                                    </div>
-                                                    <button type="submit"  class="btn btn-success">Kaydet</button>
-
-                                                </form>
-                                            </div>
-                                                
-                                         
-                                            
+                                                <h4> @item.Name <br /> @item.Description  <br /> </h4>
+                                                    <div id="dvModalCreate"></div>
+                                                </div>                                        
                                         </div>
                                    
                                     </div>
@@ -474,6 +463,10 @@
 
     <!-- JohnDoe js -->
     <script src="~/Template/public_html/assets/js/johndoe.js"></script>
+
+    <script src="~/js/Helper.js"></script>
+
+
 
 </body>
 </html>

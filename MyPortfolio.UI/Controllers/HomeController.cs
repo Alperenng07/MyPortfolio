@@ -45,12 +45,12 @@ namespace MyPortfolio.UI.Controllers
 
 
 
-        [HttpPost]
-        public async Task<IActionResult> Index(Comment lang)
-        {
-            var langs = await _service.AddAsync(lang);
-            return View(langs);
-        }
+        //[HttpPost]
+        //public async Task<IActionResult> Index(CommentView lang)
+        //{
+        //    var langs = await _service.AddAsync(lang);
+        //    return View(langs);
+        //}
 
 
 
@@ -69,6 +69,25 @@ namespace MyPortfolio.UI.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+        public ActionResult Create()
+        {
+            CommentView model = new CommentView();
+            return PartialView("_CreateComment", model);
+        }
+
+        [HttpPost]
+        public ActionResult ActionCreate(CommentView model)
+        {
+            var comment = new Comment();
+            comment.Answer = model.Answer;
+            comment.Text = model.Text;
+            comment.UserId = model.UserId;
+            var response = this._service.AddAsync(comment);
+
+            return this.RedirectToAction("Index");
         }
     }
 }

@@ -28,6 +28,10 @@ builder.Services.AddScoped<IBaseService<Comment>, BaseService<Comment>>();
 builder.Services.AddScoped<IBaseRepository<Comment>, BaseRepository<Comment>>();
 
 
+builder.Services.AddScoped<IBaseService<Offer>, BaseService<Offer>>();
+builder.Services.AddScoped<IBaseRepository<Offer>, BaseRepository<Offer>>();
+
+
 builder.Services.AddScoped<IBaseService<ModeratorFullViewModel>, BaseService<ModeratorFullViewModel>>();
 builder.Services.AddScoped<IBaseRepository<ModeratorFullViewModel>, BaseRepository<ModeratorFullViewModel>>();
 
