@@ -1,9 +1,11 @@
 ﻿using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Business.Service.BaseService;
 
 namespace MyPortfolio.UI.Controllers
 {
+    [Authorize]
     public class OfferController : Controller
     {
         private readonly IBaseService<Offer> _service;

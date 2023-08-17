@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.UI.Models;
@@ -8,6 +9,7 @@ using System.Diagnostics;
 
 namespace MyPortfolio.UI.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -16,18 +18,20 @@ namespace MyPortfolio.UI.Controllers
         public HomeController(ILogger<HomeController> logger, DataContext context, IBaseService<Comment> service)
         {
             _logger = logger;
-           _context = context;
-            _service= service;
+            _context = context;
+            _service = service;
         }
+
+
 
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-           
-        ModeratorFullViewModel model = new ModeratorFullViewModel();
 
-            model.Moderators= _context.Moderators.ToList();
+            ModeratorFullViewModel model = new ModeratorFullViewModel();
+
+            model.Moderators = _context.Moderators.ToList();
             model.Jobs = _context.Jobs.ToList();
             model.Projects = _context.Projects.ToList();
             model.Languages = _context.Languages.ToList();
@@ -40,12 +44,8 @@ namespace MyPortfolio.UI.Controllers
 
             return View(model);
 
-          
+
         }
-
-
-
-     
 
 
 
@@ -83,5 +83,11 @@ namespace MyPortfolio.UI.Controllers
 
             return this.RedirectToAction("Index");
         }
+
+
+
+
+
+
     }
 }
