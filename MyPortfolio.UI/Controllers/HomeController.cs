@@ -1,5 +1,6 @@
 ﻿using Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.UI.Models;
@@ -9,7 +10,7 @@ using System.Diagnostics;
 
 namespace MyPortfolio.UI.Controllers
 {
-    [Authorize]
+  
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -65,13 +66,15 @@ namespace MyPortfolio.UI.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-
+  
         public ActionResult Create()
         {
             CommentView model = new CommentView();
+
+         
             return PartialView("_CreateComment", model);
         }
-
+      
         [HttpPost]
         public ActionResult ActionCreate(CommentView model)
         {

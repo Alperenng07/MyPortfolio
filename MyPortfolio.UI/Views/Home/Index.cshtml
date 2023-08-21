@@ -334,20 +334,23 @@
 
                         <p class="post-details">
                             <a href="/../Views/Home/Index.cshtml">By: Admin</a>
-                            <a href="~/Template/public_html/#"><i class="ti-heart text-danger"></i> 234</a>
-                            <a href="~/Template/public_html/#"><i class="ti-comment"></i> 123</a>
-                        </p>
+                           
+                           
 
                         <p>@item.Description </p>
 
                        
 
-                        <a href="~/Template/public_html/#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+                     
 
 
-                            <button type="button" data-target="#modalCreate" data-toggle="modal" class="btn btn-primary" onclick="loadModal('dvModalCreate','@Url.ActionLink("Create","Home")')">
+                            
+                            <button type="button" data-target="#modalCreate" data-toggle="modal" class="btn btn-primary" onclick=" loadModal('dvModalCreate','@Url.ActionLink("Create","Home")')">
                                 Yorum Yap
                             </button>
+
+
+   
                                 <div class="modal" id="modalCreate">
                                     <div class="modal-dialog">
                                     <div class="modal-content">
