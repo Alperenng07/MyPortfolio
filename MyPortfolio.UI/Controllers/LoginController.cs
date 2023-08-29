@@ -4,16 +4,17 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.UI.Models.Auth;
+using Portfolio.Business.Service.BaseService;
 using System.Security.Claims;
 
 namespace MyPortfolio.UI.Controllers
 {
     public class LoginController : Controller
     {
-     
-        public LoginController()
+        private readonly IBaseService<User> _service;
+        public LoginController(IBaseService<User> service)
         {
-            
+            _service = service;
         }
 
         [HttpGet]
@@ -60,25 +61,28 @@ namespace MyPortfolio.UI.Controllers
             return RedirectToAction("Login");
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var user = new User()
-        //        {
-        //            Name = registerViewModel.FullName,
-        //            SurName = registerViewModel.Email,
-        //            Password = registerViewModel.Password
-        //        };
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new User()
+                {
+                    Name = registerViewModel.Name,
+                    SurName = registerViewModel.SurName,
+                    Email = registerViewModel.Email,
+                    Phone = registerViewModel.Phone,
+                    Password = registerViewModel.Password
+                };
 
-        //        var result = await HttpContext.CreateAsync(user, registerViewModel.Password);
-        //        if (result.Succeeded)
-        //        {
-        //            return RedirectToAction("Login");
-        //        }
-        //    }
-        //    return View();
-        //}
+                var result = await this._service.AddAsync(user);
+                
+               
+                    return RedirectToAction("Login","Login");
+                
+
+            }
+            return View();
+        }
     }
 }

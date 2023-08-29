@@ -1,40 +1,81 @@
-﻿
+﻿@model MyPortfolio.UI.Models.Auth.SignInViewModel
 @{
     Layout = null;
 }
-<form action="/Home/Index" method="post">
+<div class="fullpage">    
+<div  class="logpage">   
 
-    
+     <img src="/Template/public_html/assets/imgs/log.jpg" style="position:center"/> <br />
 
-  <div class="container">
-      <img src="/Template/public_html/assets/imgs/log.jpg" style="position:center"/> <br />
+<form asp-controller="Login" asp-action="Login" method="post"> 
+        <div class="input-group mb-3">
+          <input asp-for="Email" type="text" class="form-control" id="Email" placeholder="Email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input asp-for="Password" type="password" class="form-control" id="password" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <span asp-validation-for="Password" class="alert-danger"></span>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Remember Me
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Giriş</button>
+          </div>
 
-    <label for="Name"><b>Kullanıcı Adı</b></label>
-    <input type="text" placeholder="Kullanıcı Adı:" name="uname" required>
 
-    <label for="Password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="Password" required>
+           <div >
+           <button class ="logbtn">
+                    <a href="@Url.Action("Register", "Login")" class="btn btn-secondary">Kayıt Ol</a>
+                </button>
+          </div>
 
-    <button type="submit">Giriş Yap </button>
- 
 
-     <button type="submit">
-     <a href="@Url.Action("Register", "Account")" class="btn btn-secondary">Hesap Oluştur</a>
-   </button>
-    <br />
-
-      <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-
-  
-</form>
-
+          <!-- /.col -->
+        </div>
+      </form>
+      </div> </div>
 <style>
+     .logpage{
+        position: absolute;
+        top: 50;
+        right: 500;
+        background-color: lightgray;
+        padding: 15 px;
+        background-color: transparent;
+       
+
+       }
+       .fullpage{
+           width:100%;
+           background-color:lightgray
+           color:blue;
+       }
+
+
+
+
+
 /* Bordered form */
 form {
   border: 3px solid #f1f1f1;
+  width:500;
 }
 
 /* Full-width inputs */

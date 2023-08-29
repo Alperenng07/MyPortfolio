@@ -74,7 +74,7 @@ namespace MyPortfolio.UI.Controllers
          
             return PartialView("_CreateComment", model);
         }
-      
+        [Authorize]
         [HttpPost]
         public ActionResult ActionCreate(CommentView model)
         {

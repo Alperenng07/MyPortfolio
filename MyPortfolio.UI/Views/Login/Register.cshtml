@@ -1,5 +1,134 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model MyPortfolio.UI.Models.Auth.RegisterViewModel
 @{
+    Layout = null;
+    ViewBag.Title = "Register";
 }
+
+    <div class="reg">
+
+    <img src="/Template/public_html/assets/imgs/log.jpg" style="position:center " width = 200 /> <br />
+        <div class="card card-outline card-primary"> 
+            <div class="card-header text-center">
+                
+            </div>
+            <div class="card-body">
+             
+
+                <form asp-controller="Login" asp-action="Register" method="post">
+                    <div class="input-group mb-3">
+                        <input asp-for="Name" type="text" class="form-control" id="Name" placeholder="Name">
+                    <br />
+                    <br />
+                    
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <div class="input-group mb-3">
+                    <input asp-for="SurName" type="text" class="form-control" id="Name" placeholder="SurName">
+                    <br />
+                    <br />
+
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <div class="input-group mb-3">
+                        <input asp-for="Email" type="text" class="form-control" id="email" placeholder="Email">
+
+                    <br />
+                    <br />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input asp-for="Password" type="password" class="form-control" id="password" placeholder="Password">
+                    <br />
+                    <br />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                       
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Retype password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    <br />
+                    <br />
+                    </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Phone">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                </div>
+             
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                <label for="agreeTerms">
+                                    I agree to the <a href="#">terms</a>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                  
+                    <br />
+                        <div class="btnpre">
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+
+           
+            <br />
+                <a href="Login" class="text-center">I already have a membership</a>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+    <style>
+
+        .reg{
+        position: absolute;
+        top: 50;
+        right: 500;
+        background-color: lightgray;
+        padding: 15 px;
+        background-color: transparent;
+            
+
+        }
+
+    .btnpre{
+     color:blue;
+    }
+
+    .card-body{
+        size:30;
+    }
+    </style>
