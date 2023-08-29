@@ -10,7 +10,7 @@ using System.Diagnostics;
 
 namespace MyPortfolio.UI.Controllers
 {
-  
+   
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -66,7 +66,7 @@ namespace MyPortfolio.UI.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-  
+        [Authorize]
         public ActionResult Create()
         {
             CommentView model = new CommentView();

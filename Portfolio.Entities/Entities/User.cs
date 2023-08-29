@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities
 {
-    public class User:BaseEntity
+    public class User: IdentityUser<Guid>
     {
         [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }
@@ -19,7 +20,7 @@ namespace Entities
         public string Password{ get; set; }
        
        
-        public String Role { get; set; }= "Guess";
+       
        
 
 

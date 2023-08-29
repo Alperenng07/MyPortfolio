@@ -1,5 +1,6 @@
 using Entities;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.UI.Models;
 using Portfolio.Business.Service.Auth;
@@ -26,6 +27,13 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 
 
+
+
+//builder.Services.AddScoped<UserManager<User>>();
+
+
+
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IBaseService<User>, BaseService<User>>();
@@ -46,9 +54,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {
-    options.Cookie.Name = "NetCoreMvc.Auth";
-    options.LoginPath = "/Login/Index";
-    options.AccessDeniedPath = "/Login/Index";
+    
+    options.LoginPath = "/Login/Login";
+    
 });
 
 

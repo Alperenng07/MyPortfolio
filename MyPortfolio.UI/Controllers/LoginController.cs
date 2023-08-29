@@ -10,12 +10,10 @@ namespace MyPortfolio.UI.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
-        public LoginController(UserManager<User> userManager, SignInManager<User> signInManager)
+     
+        public LoginController()
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            
         }
 
         [HttpGet]
@@ -27,30 +25,25 @@ namespace MyPortfolio.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(SignInViewModel signInViewModel)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View();
+
+            if (signInViewModel.Email == "Alperen" && signInViewModel.Password == "1234")
             {
-                var user = await _userManager.FindByNameAsync(signInViewModel.Email);
-                if (user != null)
+                var claims= new List<Claim>
                 {
-                    var result = await _signInManager.PasswordSignInAsync(user, signInViewModel.Password, false, false);
-                    if (result.Succeeded)
-                    {
-                        await _userManager.ResetAccessFailedCountAsync(user);
+                    new Claim(ClaimTypes.NameIdentifier,signInViewModel.Email),
+                    new Claim(ClaimTypes.Name,signInViewModel.Email),
+                    new Claim(ClaimTypes.Role,"User")
+                };
 
-                        return RedirectToAction("Index", "Home");
-                    }
+                var claimsIdendity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
+                var authProperties= new AuthenticationProperties { };
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdendity),authProperties);
+                return RedirectToAction("Index", "Home");
 
-                    if (result.IsLockedOut)
-                    {
-                        var lockoutEndTime = await _userManager.GetLockoutEndDateAsync(user);
-                        ModelState.AddModelError("Password", $"Account Locked. Locked End = {lockoutEndTime}");
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("Password", "Error : Invalid Credentials.");
-                }
             }
+            ModelState.AddModelError("Password", "Error:Invalid credentials.");
             return View();
         }
 
@@ -62,30 +55,30 @@ namespace MyPortfolio.UI.Controllers
 
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();
+            await HttpContext.SignOutAsync();
 
             return RedirectToAction("Login");
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new User()
-                {
-                    Name = registerViewModel.FullName,
-                    SurName = registerViewModel.Email,
-                    Password = registerViewModel.Password
-                };
+        //[HttpPost]
+        //public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = new User()
+        //        {
+        //            Name = registerViewModel.FullName,
+        //            SurName = registerViewModel.Email,
+        //            Password = registerViewModel.Password
+        //        };
 
-                var result = await _userManager.CreateAsync(user, registerViewModel.Password);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Login");
-                }
-            }
-            return View();
-        }
+        //        var result = await HttpContext.CreateAsync(user, registerViewModel.Password);
+        //        if (result.Succeeded)
+        //        {
+        //            return RedirectToAction("Login");
+        //        }
+        //    }
+        //    return View();
+        //}
     }
 }
