@@ -1,4 +1,6 @@
-﻿<div class="myCard">
+﻿
+@model Portfolio.Admin.Models.ModeratorImgModelView
+<div class="myCard">
     <div class="col-md-12">
         <!-- general form elements -->
         <div class="card card-primary">
@@ -46,6 +48,12 @@
                         <label for="Twitter">Twitter(URL)</label>
                         <textarea class="form-control" name="Twitter" id="Twitter" cols="20" rows="10" placeholder="Twitter"></textarea>
                     </div>
+                    <div class="form-group">
+                        <label>Profil Resmi</label>
+                        <input type="file" asp-for="ImageFile" class="form-control-file" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
+
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

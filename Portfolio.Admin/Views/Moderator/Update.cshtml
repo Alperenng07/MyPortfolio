@@ -1,5 +1,6 @@
-﻿@using Entities
-@model Entities.Moderator
+﻿@model Portfolio.Admin.Models.ModeratorImgModelView
+@using Entities
+
 
 <div class="myCard">
     <div class="col-md-12">
@@ -48,8 +49,12 @@
                         <label for="Twitter">Twitter:</label>
                         <input name="Twitter" value="@Model.Twitter" type="text" class="form-control" id="Twitter" placeholder="Twitter">
                     </div>
-                   
 
+                    <div class="form-group">
+                        <label>Profil Resmi</label>
+                        <input type="file" asp-for="ImageFile" class="form-control-file" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

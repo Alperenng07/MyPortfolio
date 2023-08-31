@@ -32,6 +32,8 @@ namespace Entities
         [Required(ErrorMessage = "Twitter is required.")]
         public string Twitter { get; set; }
 
+        public string ImageFile { get; set; }
+
 
     }
 }

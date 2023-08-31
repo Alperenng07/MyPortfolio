@@ -50,6 +50,12 @@ builder.Services.AddScoped<IBaseRepository<Offer>, BaseRepository<Offer>>();
 builder.Services.AddScoped<IBaseService<Comment>, BaseService<Comment>>();
 builder.Services.AddScoped<IBaseRepository<Comment>, BaseRepository<Comment>>();
 
+
+
+
+
+
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>();
 

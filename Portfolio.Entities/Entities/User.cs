@@ -18,10 +18,12 @@ namespace Entities
         public string Phone{ get; set; }
         [Required(ErrorMessage = "Password is required.")]
         public string Password{ get; set; }
-       
-       
-       
-       
+
+        public string ImageFile { get; set; }
+
+        
+
+
 
 
 
