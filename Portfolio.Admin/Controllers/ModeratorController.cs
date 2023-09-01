@@ -31,42 +31,53 @@ namespace Portfolio.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Moderator lang, ModeratorImgModelView umv)
+        public async Task<IActionResult> Create( ModeratorImgModelView umv)
         {
+            var blog = new Moderator();
+
+            blog.Name = umv.Name;
+            blog.Adress = umv.Adress;
+            blog.Phone = umv.Phone;
+            blog.Email = umv.Email;
+            blog.Twitter = umv.Twitter;
+            blog.Linedln = umv.Linedln;
+            blog.Twitter = umv.Twitter;
+            blog.Github = umv.Github;
+            blog.Instagram = umv.Instagram;
            
 
 
 
-                var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+
+            var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images");
                 if (!Directory.Exists(imagePath))
                 {
                     Directory.CreateDirectory(imagePath);
                 }
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(umv.ImageFile.FileName);
+
+  
+           
+
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(umv.ImageFile.FileName);
                 var filePath = Path.Combine(imagePath, fileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     await umv.ImageFile.CopyToAsync(fileStream);
                 }
-
+            blog.ImageFile = filePath;
             //if (GetCurrentUserId() == -1)
             //{
             //    return RedirectToAction("Index");
             //}
 
-            var blog = new Moderator
-                {
-                    ImageFile = fileName
-                };
-                await _service.AddAsync(blog);
-                return RedirectToAction("Index");
-            
 
 
 
-            //var langs = await _service.AddAsync(lang);
-            //return View(langs);
+
+            var response = this._service.AddAsync(blog);
+
+            return this.RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -107,7 +118,7 @@ namespace Portfolio.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(Moderator moderator, ModeratorImgModelView umv)
+        public async Task<IActionResult> Update( ModeratorImgModelView umv)
         {
 
 
@@ -130,22 +141,12 @@ namespace Portfolio.Admin.Controllers
             //    return RedirectToAction("Index");
             //}
 
-            var blog = new Moderator
-            {       
-            //Name = umv.Name,
-            //Password = umv.Password,
-            //Phone= umv.Phone,
-            //Email = umv.Email,
-            //Adress = umv.Adress,
-            //Github = umv.Github,
-            //Linedln = umv.Linedln,
-            //Instagram = umv.Instagram,
-            //Twitter = umv.Twitter,
-            ImageFile = filePath,
-            };
-            //await _service.AddAsync(blog);
-            //return RedirectToAction("Index");
+            var blog = new Moderator();
+            {
 
+                blog.ImageFile = filePath;
+            };
+           
 
 
 
